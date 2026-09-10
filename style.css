@@ -8,7 +8,18 @@
     --text-secondary: #94a3b8; /* Otrā plāna teksta krāsa */
     --accent-color: #38bdf8;   /* Akcenta krāsa (zila) */
     --accent-hover: #0284c7;   /* Poga uzveidojot */
+    --border-color: #334155;
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.light-mode {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #172033;
+    --text-secondary: #475569;
+    --accent-color: #0369a1;
+    --accent-hover: #075985;
+    --border-color: #cbd5e1;
 }
 
 /* Pamata atiestatīšana */
@@ -38,10 +49,10 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(15, 23, 42, 0.9);
+    background-color: var(--bg-color);
     backdrop-filter: blur(8px);
     z-index: 1000;
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav {
@@ -73,6 +84,26 @@ nav {
 }
 
 .nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.theme-toggle {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    font: inherit;
+    font-size: 1rem;
+}
+
+.theme-toggle:hover {
     color: var(--accent-color);
 }
 
@@ -129,7 +160,7 @@ h2.section-title {
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    border: 1px solid #334155;
+    border: 1px solid var(--border-color);
 }
 
 /* 2. SEKCIJA: Prasmes */
@@ -143,7 +174,7 @@ h2.section-title {
     background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #334155;
+    border: 1px solid var(--border-color);
 }
 
 .skill-card h3 {
@@ -179,7 +210,7 @@ h2.section-title {
     background-color: var(--card-bg);
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #334155;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
 }
@@ -210,6 +241,21 @@ h2.section-title {
     flex-grow: 1;
 }
 
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tag {
+    border: 1px solid var(--accent-color);
+    border-radius: 999px;
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+}
+
 .project-links {
     display: flex;
     gap: 1rem;
@@ -230,6 +276,10 @@ h2.section-title {
     color: #0f172a;
 }
 
+.cv-button {
+    white-space: nowrap;
+}
+
 .btn-primary:hover {
     background-color: var(--accent-hover);
 }
@@ -237,11 +287,11 @@ h2.section-title {
 .btn-secondary {
     background-color: transparent;
     color: var(--text-color);
-    border: 1px solid #334155;
+    border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-    background-color: #334155;
+    background-color: var(--border-color);
 }
 
 /* 4. SEKCIJA: Kontakti */
@@ -249,7 +299,7 @@ h2.section-title {
     background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 8px;
-    border: 1px solid #334155;
+    border: 1px solid var(--border-color);
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
@@ -277,7 +327,7 @@ footer {
     padding: 2rem;
     color: var(--text-secondary);
     font-size: 0.85rem;
-    border-top: 1px solid #334155;
+    border-top: 1px solid var(--border-color);
     margin-top: 3rem;
 }
 
@@ -296,5 +346,15 @@ footer {
     .nav-links {
         gap: 0.8rem;
         font-size: 0.9rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: center;
     }
 }
